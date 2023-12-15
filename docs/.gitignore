@@ -24,3 +24,5 @@ assets/js/dist
 
 .sass-cache
 .jekyll-metadata
+
+.DS_Store
