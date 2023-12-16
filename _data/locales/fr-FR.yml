@@ -1,0 +1,15 @@
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  datasheets: Datasheets
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: ""
+    name: ""
+    link: ""
+
+  # Displayed in the footer
+  brief: ""
+  verbose: ""
