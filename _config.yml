@@ -39,8 +39,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   Garage des projets divers et variés.
 
 domain: zcool85.github.io      # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: "https://zcool85.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/Blog" # the subpath of your site, e.g. /blog
+url: "https://zcool85.github.io/Blog" # the base hostname & protocol for your site, e.g. http://example.com
+# the subpath of your site, e.g. /blog
+baseurl: ""
 permalink: pretty
 
 github:
@@ -54,7 +55,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Zéro Cool
-  #email: example@domain.com # change to your email address
+  email: no-address@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
     #- https://twitter.com/username # change to your twitter homepage
