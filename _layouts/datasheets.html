@@ -1,0 +1,33 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{% comment %}
+list all datasheets types
+{% endcomment %}
+
+{% assign distinct_datasheet_types = "" | split: ',' %}
+
+{% for datasheet in site.datasheets %}
+    {% unless distinct_datasheet_types contains datasheet.type %}
+        {% assign distinct_datasheet_types = distinct_datasheet_types | push: datasheet.type %}
+    {% endunless %}
+{% endfor %}
+
+
+{% for datasheet_type in distinct_datasheet_types %}
+<ul class="content ps-0">
+    <h2>{{ datasheet_type }}</h2>
+    {% for datasheet in site.datasheets %}
+        {% if datasheet.type == datasheet_type %}
+        <li>
+            <a href="{{ datasheet.url | relative_url }}">{{ datasheet.title }}</a>
+            {{ datasheet.excerpt }}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endfor %}
+
