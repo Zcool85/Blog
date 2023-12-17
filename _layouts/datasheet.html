@@ -5,4 +5,4 @@ layout: default
 
 {{ content }}
 
-{% pdf {{ page.pdf }} %}
+{% pdf {{ page.pdf | relative_url }} %}

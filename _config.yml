@@ -133,6 +133,8 @@ paginate: 10
 
 plugins:
   - jekyll-pdf-embed
+  - jemoji
+
 
 # ------------ The following options are not recommended to be modified ------------------
 
