@@ -37,6 +37,13 @@ Dans l'idéal, j'aimerais pouvoir brancher toutes ces consoles :
 - PS3
 - Dreamcast
 
+## Formats vidéo des consoles
+
+**TODO**
+Cf. [optimal timing for OSSC](https://junkerhq.net/xrgb/index.php?title=Optimal_timings)
+
+Pour la NES/SNES, prévoir un dejitter. Infos [ici](https://shmups.system11.org/viewtopic.php?f=6&t=61285) et projet [ici](https://github.com/marqs85/snes_dejitter).
+
 ## Pinout cables
 
 ### Pinout SCART
@@ -200,6 +207,26 @@ Toutes les consoles n'utilisent pas toutes les capacités / formats possibles d'
 L'objectif ici est de présenter le brochage utilisé par chaque console et indiquer le format
 de sortie réel.
 
+> Une liste assez complète de pleins de schéma de consoles en tout genre : [gamex](https://gamesx.com/wiki/doku.php?id=schematics:console_related_schematics)
+{: .prompt-info }
+
+Récap' :
+
+| Console          | CVBS | RVB
+|------------------|------|------
+| Master system II | Yes  | Yes
+| NES              | Yes  | Yes
+| SNES             | Yes  | Yes
+| GameCube         | Yes  | Yes
+| Wii              | Yes  | Yes
+| PS1              | Yes  | Yes
+| PS2              | Yes  | Yes
+| PS3              | Yes  | Yes
+| Dreamcast        | Yes  | Yes
+
+> A regarder pour tout sortir en VGA : [jeffqchen](https://github.com/jeffqchen/Console-VGA-Dongle-Series/tree/main)
+{: .prompt-info }
+
 ### Master system II
 
 > Le pinout de la master system II est identique au pinout de la master system
@@ -220,6 +247,9 @@ de sortie réel.
 
 ### NES
 
+**TODO**
+![NES Pinout](assets/consoles_pinout/nes.gif)
+
 ### SNES
 
 **TODO**
@@ -234,7 +264,14 @@ de sortie réel.
 
 ### PS1
 
+La plupart des cables PS1 utilisent le composite alors que la console sort nativement du RGB.
+
+**TODO**
+![PS1 Pinout](/assets/consoles_pinout/ps1-ps2.png)
+
 ### PS2
+
+La PS2 utilise exactement la même connectique que la PS1.
 
 ### PS3
 
