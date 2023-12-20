@@ -2,7 +2,7 @@
 layout: datasheets
 title: Datasheets
 icon: fa-regular fa-file-pdf
-order: 4
+order: 5
 toc: true
 ---
 

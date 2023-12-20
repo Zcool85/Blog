@@ -1,12 +1,8 @@
 ---
-layout: post
-author: zcool
-title:  "Projet vielles consoles"
-date:   2023-12-17 21:55:00 +0100
-categories: [Projets, Consoles]
+title:  "Hub vidéo pour mes anciennes consoles"
+type: Consoles
+last_modified_at: 2023-12-20 21:55:00 +0100
 ---
-
-## Explications sur le projet
 
 Je dispose de plusieurs vielles consoles (PS1, PS2, NES, SNES, GameCube, Wii, etc.). Ces dernières
 disposent de connectiques vidéos disparates (CVBS, SCART, RVB, YUV, etc.). De plus, les télés "modernes"
@@ -15,6 +11,8 @@ console pour pouvoir jouer).
 
 J'aimerais donc, dans la mesure de mes capacités, trouver un moyen de pouvoir brancher toutes mes
 consoles (y.c. les plus vielles) sur un boitier unique qui sera connecté à la télé sur une prise HDMI.
+
+<!--more-->
 
 > Alors oui je sais qu'il existe des boitiers déjà tout prêt pour convertir différents formats vidéos vers
 > du hdmi, mais la plupart du temps je suis déçu de la qualité médiocre de ces produits, et il n'en reste
@@ -248,7 +246,7 @@ Récap' :
 ### NES
 
 **TODO**
-![NES Pinout](assets/consoles_pinout/nes.gif)
+![NES Pinout](/assets/consoles_pinout/nes.gif)
 
 ### SNES
 

@@ -1,7 +1,14 @@
+post:
+  posted: Posté le
+  updated: Mis à jour le
+  read_time:
+    prompt: " à lire"
+
 # The tabs of sidebar
 tabs:
   # format: <filename_without_extension>: <value>
   datasheets: Datasheets
+  projects: Mes projets
 
 copyright:
   # Shown at the bottom of the post

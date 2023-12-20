@@ -1,0 +1,33 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{% comment %}
+list all projects types
+{% endcomment %}
+
+{% assign distinct_project_types = "" | split: ',' %}
+
+{% for project in site.projects %}
+    {% unless distinct_project_types contains project.type %}
+        {% assign distinct_project_types = distinct_project_types | push: project.type %}
+    {% endunless %}
+{% endfor %}
+
+
+{% for project_type in distinct_project_types %}
+<ul class="content ps-0">
+    <h2>{{ project_type }}</h2>
+    {% for project in site.projects %}
+        {% if project.type == project_type %}
+        <li>
+            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+            {{ project.excerpt }}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endfor %}
+
