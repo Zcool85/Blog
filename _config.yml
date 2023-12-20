@@ -41,7 +41,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 domain: zcool85.github.io      # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: "https://zcool85.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # the subpath of your site, e.g. /blog
-baseurl: "/Blog"
+baseurl: ""
 permalink: pretty
 
 github:
