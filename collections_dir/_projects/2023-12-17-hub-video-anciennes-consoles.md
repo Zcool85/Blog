@@ -2,6 +2,7 @@
 title:  "Hub vidéo pour mes anciennes consoles"
 type: Consoles
 last_modified_at: 2023-12-20 21:55:00 +0100
+state: En cours
 ---
 
 Je dispose de plusieurs vielles consoles (PS1, PS2, NES, SNES, GameCube, Wii, etc.). Ces dernières
@@ -284,10 +285,28 @@ La PS2 utilise exactement la même connectique que la PS1.
 
 **TODO**
 
+Tester un RGB ampifier pour la NES ? [Lien](https://gamesx.com/wiki/doku.php?id=av:nes_rgb_amplifier){:target="_blank"}
+
 ## Les différents formats vidéos
 
 **TODO**
 
+## Première réflexions de circuits
+
+**TODO**
+Cf. [Analog divice article](https://www.analog.com/en/analog-dialogue/articles/hdmi-made-easy.html)
+
+### Colorimétrie de la NES
+
+Pour la NES, il ne sera pas possible de connaitre la liste de toutes les couleurs rendues
+par la console. En effet, la colorimétrie n'est pas fiable même produite par le hardware de
+la console. Le rendu sera différent en fonction de la console et de la télé.
+
+L'article de [RetroRGB](https://www.retrorgb.com/nes-palette-comparisons.html){:target="_blank"}
+explique en détail ces nuances.
+
+Inutile donc d'envisager de détecter les couleurs parmis une liste prédéfinie pour se simplifier
+la vie...
 
 
 [^scart_pinout]: Cf. [Pinoutguide - SCART](https://pinoutguide.com/Audio-Video-Hardware/Scart_pinout.shtml){:target="_blank"}

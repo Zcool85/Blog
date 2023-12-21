@@ -23,6 +23,11 @@ list all projects types
     {% for project in site.projects %}
         {% if project.type == project_type %}
         <li>
+            {% assign state = project.state | strip_newlines %}
+
+            {% if state != "" %}
+                [ {{ project.state }} ]
+            {% endif %}
             <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
             {{ project.excerpt }}
         </li>

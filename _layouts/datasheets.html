@@ -24,6 +24,14 @@ list all datasheets types
         {% if datasheet.type == datasheet_type %}
         <li>
             <a href="{{ datasheet.url | relative_url }}">{{ datasheet.title }}</a>
+            {% assign state = datasheet.state | strip_newlines %}
+            {% assign replacement = datasheet.replacement | strip_newlines %}
+            {% if state == "discontinued" and datasheet.replacement != "" %}
+                [ {{ state }} - Replacement : {{ replacement }} ]
+            {% elsif state != "" %}
+                [ {{ state }} ]
+            {% endif %}
+
             {{ datasheet.excerpt }}
         </li>
         {% endif %}
