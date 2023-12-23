@@ -17,5 +17,74 @@ module par un fait maison qui me permettra de restituer le signal composite sort
 
 Dépôt GitHub : [https://github.com/Zcool85/NESComposite](https://github.com/Zcool85/NESComposite){:target="_blank"}
 
+## WIP
+
+> A tester : [Circuit composite à priori le mieux](https://www.nesdev.org/wiki/PPU_pinout)
+{: .prompt-info }
+
 > A tester : [Autre circuit composite](https://ctrl-alt-rees.com/2019-01-26-nintendo-famicom-composite-video-output-mod.html)
 {: .prompt-info }
+
+## Sortie vidéo composite
+
+Le PPU de la console sort directement le signal vidéo composite depuis la broche N°21. Il est donc
+possible de récupérer le signal directement depuis cette broche et d'amplifier le signal via le
+schéma suivant :
+
+![NES Composite](/assets/projects/NESComposite/Composite video mod.jpg)
+_Schéma de principe pour la sortie composite NES_
+
+## Audio "stéréo"
+
+Pour l'audio stéréo, l'objectif consiste à mixer le canal audio N°1 du CPU avec le canal mono sur la voie de gauche et
+mixer le canal audio N°2 du CPU avec le canal mono sur la voie de droite.
+
+Le schéma suivant présente le mixing :
+
+![Audio Stereo](/assets/projects/NESComposite/audio_stereo mod.png)
+_Schéma de principe pour la sortie audio stéréo_
+
+> Les résistances variables permettent de mixer plus ou moins le canal mono sur chacune des voies.
+{: .prompt-info }
+
+![Broches audio du CPU](/assets/projects/NESComposite/audio_cpu.jpeg)
+_Emplacement des broches audios sur le CPU_
+
+![Flux audio mono](/assets/projects/NESComposite/audio_mono.jpeg)
+_Emplacement de la broche du flux audio mono_
+
+## All-in-one
+
+Dans ma toute première version du moding de ma NES, j'avais remplacé intégralement le module de convertion RGB
+dans lequel j'avais intégré l'alimentation, la sortie composite et le son stéréo. Ce dernier nécessite la
+modification de la prise péritel car il manque une broche pour l'audio gauche...
+
+Le tableau suivant référence les 10 broches du connecteur standard NES vers SCART :
+
+| Pin | Name    | Direction | Description             | Signal Level | Impédance
+|----:|---------|-----------|-------------------------|--------------|----------
+| 1   | BLNK    | OUT       | Fast blanking / Fast switch | 1~3 V => RGB<br />0~0.4 V => Composite | 75 ohm
+| 2   | SWTCH   | OUT       | Slow switch (Video format) |              |
+| 3   | R       | OUT       | Red                     | 0.7 V        | 75 ohm
+| 4   | C_GND   | GND       | Composite Video Ground  |              |
+| 5   | G       | OUT       | Green                   | 0.7 V        | 75 ohm
+| 6   | R_G_GND | GND       | Red and Green ground    |              |
+| 7   | B       | OUT       | Blue                    | 0.7 V        | 75 ohm
+| 8   | B_A_GND | GND       | Blue and Audio ground   |              |
+| 9   | C       | OUT       | Composite Video         | 1 V         | 75 ohm
+| 10  | A       | OUT       | Audio mono              | 0.5 V rms    | < 1K ohm
+
+Les dix broches sont bien entendu relié au connecteur SCART. La seule façon de faire passer la stéréo
+est donc d'utiliser une des pins RGB qui va disparaitre, mais il faudra alors modifier également
+le connecteur SCART... Et donc modifier le cablage d'origine. Pire encore, si l'on utilise un cable
+officiel, alors un signal audio sera transmis sur un canal RGB ce qui n'est pas conseillé.
+
+Pour cette nouvelle version du projet, j'ai deux solutions :
+
+- Soit je passe en mode "stéréo" et dans ce cas une modification péritel s'impose
+- Soit j'abandonne le mode "stéréo" et je peux alors conserver la péritel standard
+
+Pour cette nouvelle version, il n'y aura pas de mode "stéréo".
+
+***TODO***
+Finaliser le schéma avec [nesmod (sans httpS)](https://rnc.free.fr/nesmod/).
