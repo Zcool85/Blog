@@ -10,6 +10,8 @@ un seul et même appareil.
 
 <!--more-->
 
+Dépôt GitHub : [https://github.com/Zcool85/SomfyHome](https://github.com/Zcool85/SomfyHome){:target="_blank"}
+
 Pour ce projet, j'ai décidé d'utiliser un ESP32 pour pouvoir envisager d'utiliser
 mon réseau local pour, par la suite, pouvoir piloter les volets roulant.
 
