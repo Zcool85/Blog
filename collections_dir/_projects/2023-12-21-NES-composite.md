@@ -17,13 +17,24 @@ module par un fait maison qui me permettra de restituer le signal composite sort
 
 Dépôt GitHub : [https://github.com/Zcool85/NESComposite](https://github.com/Zcool85/NESComposite){:target="_blank"}
 
-## WIP
+## TODO
 
-> A tester : [Circuit composite à priori le mieux](https://www.nesdev.org/wiki/PPU_pinout)
-{: .prompt-info }
+- [ ] Faire le sous-projet "Composite video mod"
+  + [x] Shéma de principe
+  + [x] Documentation
+  +  [ ] Tester une autre version du [circuit composite](https://ctrl-alt-rees.com/2019-01-26-nintendo-famicom-composite-video-output-mod.html){:target="_blank"}
+         Inspiré du site [nesdev](https://forums.nesdev.org/viewtopic.php?f=9&t=10554)
+- [x] Faire le sous-projet "Audio mod"
+  + [x] Shéma de principe
+  + [x] Documentation
+- [x] Faire le sous-projet "CIC mod"
+  + [x] Documentation
+- [ ] Faire le sous-projet "Remplacement RVB"
+  + [x] Shéma de principe
+  + [ ] PCB
+  + [ ] Documentation
+  + [ ] Finaliser le schéma avec [nesmod (sans httpS)](https://rnc.free.fr/nesmod/){:target="_blank"}.
 
-> A tester : [Autre circuit composite](https://ctrl-alt-rees.com/2019-01-26-nintendo-famicom-composite-video-output-mod.html)
-{: .prompt-info }
 
 ## Sortie vidéo composite
 
@@ -33,6 +44,12 @@ schéma suivant :
 
 ![NES Composite](/assets/projects/NESComposite/Composite video mod.jpg)
 _Schéma de principe pour la sortie composite NES_
+
+> Ce schéma est issu de [nesdev](https://www.nesdev.org/wiki/PPU_pinout)
+{: .prompt-info }
+
+![Broches PPU](/assets/projects/NESComposite/nes_ppu.jpeg)
+_Emplacement des broches PPU_
 
 ## Audio "stéréo"
 
@@ -53,7 +70,7 @@ _Emplacement des broches audios sur le CPU_
 ![Flux audio mono](/assets/projects/NESComposite/audio_mono.jpeg)
 _Emplacement de la broche du flux audio mono_
 
-## All-in-one
+## Remplacement RVB
 
 Dans ma toute première version du moding de ma NES, j'avais remplacé intégralement le module de convertion RGB
 dans lequel j'avais intégré l'alimentation, la sortie composite et le son stéréo. Ce dernier nécessite la
@@ -74,17 +91,14 @@ Le tableau suivant référence les 10 broches du connecteur standard NES vers SC
 | 9   | C       | OUT       | Composite Video         | 1 V         | 75 ohm
 | 10  | A       | OUT       | Audio mono              | 0.5 V rms    | < 1K ohm
 
-Les dix broches sont bien entendu relié au connecteur SCART. La seule façon de faire passer la stéréo
-est donc d'utiliser une des pins RGB qui va disparaitre, mais il faudra alors modifier également
+Les dix broches sont bien entendu reliées au connecteur SCART. La seule façon de faire passer la stéréo
+est donc d'utiliser une des pins RGB qui va disparaitre, mais celà nécessite également de modifier
 le connecteur SCART... Et donc modifier le cablage d'origine. Pire encore, si l'on utilise un cable
 officiel, alors un signal audio sera transmis sur un canal RGB ce qui n'est pas conseillé.
 
-Pour cette nouvelle version du projet, j'ai deux solutions :
+J'ai donc ici deux solutions :
 
 - Soit je passe en mode "stéréo" et dans ce cas une modification péritel s'impose
 - Soit j'abandonne le mode "stéréo" et je peux alors conserver la péritel standard
 
 Pour cette nouvelle version, il n'y aura pas de mode "stéréo".
-
-***TODO***
-Finaliser le schéma avec [nesmod (sans httpS)](https://rnc.free.fr/nesmod/).
