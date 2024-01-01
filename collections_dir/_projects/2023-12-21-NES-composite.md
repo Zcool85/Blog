@@ -33,7 +33,7 @@ Dépôt GitHub : [https://github.com/Zcool85/NESComposite](https://github.com/Zc
   + [x] Shéma de principe
   + [ ] PCB
   + [ ] Documentation
-  + [ ] Finaliser le schéma avec [nesmod (sans httpS)](https://rnc.free.fr/nesmod/){:target="_blank"}.
+  + [ ] Finaliser le schéma avec [nesmod](http://rnc.free.fr/nesmod/){:target="_blank"}.
 
 
 ## Sortie vidéo composite
