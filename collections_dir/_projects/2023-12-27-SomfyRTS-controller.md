@@ -242,13 +242,13 @@ les signaux de mes télécommandes :
    la réception même si l'on est en threshold type "peak".
 
    Dans mon cas, les meilleurs résultats ont été obtenu en fixant le registre "RegOokFix" (0x1D) à
-   une valeur de 30 dB.
+   une valeur de 40 dB.
 
    Données du registre RegOokFix (0x1D) :
 
     | Bits | Valeur          | Signification
     |------|-----------------|--------------
-    | 7-0  | 00011110 (0x1E) | Seuil du mode "fixed" en dB (0x1E = 30 dB)
+    | 7-0  | 00101000 (0x28) | Seuil du mode "fixed" en dB (0x28 = 40 dB)
 
 6. Fréquence
 
