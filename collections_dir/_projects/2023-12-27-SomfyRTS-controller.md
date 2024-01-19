@@ -1,7 +1,7 @@
 ---
 title:  "Controller de volet roulant Somfy RTS"
 type: Domotique
-last_modified_at: 2024-01-07 21:52:00 +0100
+last_modified_at: 2024-01-19 23:00:00 +0100
 state: En cours
 math: true
 ---
@@ -154,67 +154,69 @@ les signaux de mes télécommandes :
 
 3. Bitrate
    
-   La datasheet n'est pas super claire à mon goût sur l'utilité de ce paramètre. Toutefois,
-   d'après mes tests empiriques, si le bitrate est trop élevé, les impulsions ne sont pas "propre"
-   et j'ai de nombreuses fausses lectures :
-   
-    ![Bitrate trop élevé](/assets/projects/SomfyRTS/bitrate_trop_eleve.png){: width="500" }
-    _Bitrate trop élevé : Détections de fronts montant/descendant non désirés_
-   
-   A l'inverse, avec un bitrate trop bas, je perd la plupart des impulsions :
+   La datasheet n'est pas super claire sur le fonctionnement de ce paramètre. Après avoir fait
+   quelques recherche sur internet, il semble que ce paramètre défini la "vitesse" de lecture
+   des impulsions.
+
+   J'ai fait quelques tests empiriques, et je constate qu'avec un bitrate trop bas, je perd des
+   impulsions :
 
     ![Bitrate trop bas](/assets/projects/SomfyRTS/bitrate_trop_bas.png){: width="500" }
     _Bitrate trop bas : Certains fronts montant/descendant sont perdus_
    
-   J'en ai donc déduit que le bitrate est en quelque sorte la fréquence des lectures internes du module.
-   
-   Je suis reparti de l'analyse de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/) et j'ai
-   décidé de calculer un bitrate correspondant au nombre de bit maximum qui peuvent être transmis par seconde
-   avec l'encodage manchester : Un bit est transmis en $1204\,\mu s$; Il est donc possible de transmettre
-   $\frac{1}{1204 \times 10^{-6}} \approx 830\,bits/s$. En utilisant ce bitrate, mes lectures sont correctes,
-   toutefois parmis toutes les trames que j'ai visualisées, j'ai constaté qu'un bit peut être transmis
-   entre $1204\,\mu s$ et $1392\,\mu s$... J'ai coupé la poire en deux, et j'ai donc décidé de me baser
-   sur une transmission de $1300\,\mu s$ par bit, soit $\frac{1}{1300 \times 10^{-6}} \approx 770\,bits/s$.
+   Avec un bitrate très élevé, j'ai l'impression d'avoir plusieurs impulsions "en trop" :
 
-    > Les tolérances doivent être assez grandes car je n'ai pas constatés de différence entre un bitrate
-    > à 830 vs un bitrate à 770... Mais la vérité doit se trouver quelque part par là :blush:
-    {: .prompt-info }
+    ![Bitrate trop élevé](/assets/projects/SomfyRTS/bitrate_trop_eleve.png){: width="500" }
+    _Bitrate trop élevé : Détections de fronts montant/descendant non désirés_
+   
+   Il s'avère que le paramètre de bande passante (Bandwith) a complètement changé la donne et m'a
+   permis d'avoir des résultats très bon avec un bitrate élevé (Cf. Point qui suit).
+
+   Toujours d'après mes lecture, il semble qu'utiliser un bitrate plus élevé que les impulsions
+   s'appelle de l'oversampling.
+
+   D'après l'analyse de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/), un bit est
+   transmis en $604\,\mu s$; soit un biterate de $\frac{1}{604 \times 10^{-6}} \approx 1655\,bits/s$.
+   En utilisant ce bitrate, mes lectures sont correctes, outefois parmis toutes les trames que
+   j'ai visualisées, j'ai constaté que deux bits peuvent être transmis entre $1204\,\mu s$ et $1392\,\mu s$.
 
    La datasheet indique qu'il faut appliquer la formule suivante pour déterminer la valeur des registres
    RegBitrateMsb (0x03) et RegBitrateLsb (0x04) : $$\frac{F_{XOSC}}{BitRate}$$.
 
-   $$F_{XOSC}$$ vaut $$32\,MHz$$, donc la valeure des registre doit être fixée à $$\frac{32 \times 10^{6}}{770} \approx 41558$$.
+   $$F_{XOSC}$$ vaut $$32\,MHz$$, donc la valeure des registre doit être fixée à $$\frac{32 \times 10^{6}}{1655} \approx 19335$$.
 
-   En binaire sur 16 bits, $$41558 = 1010\;0010\;0101\;0110$$ (ou 0xA256 en hexa).
+   En binaire sur 16 bits, $$19335 = 0100\;1011\;1000\;0111$$ (ou 0x4B87 en hexa).
 
    On obtient donc pour le registre RegBitrateMsb (0x03) :
 
     | Bits | Valeur              | Signification
     |------|---------------------|--------------
-    | 7-0  | 1010 0010 (ou 0xA2) | MSB de la valeur du bitrate
+    | 7-0  | 0100 1011 (ou 0x4B) | MSB de la valeur du bitrate
 
    Et pour le registre RegBitrateLsb (0x04) :
 
     | Bits | Valeur              | Signification
     |------|---------------------|--------------
-    | 7-0  | 0101 0110 (ou 0x56) | LSB de la valeur du bitrate
+    | 7-0  | 1000 0111 (ou 0x87) | LSB de la valeur du bitrate
 
 4. Bandwith de réception
 
    Pour ce paramètre, j'ai testé de manière empirique les valeurs proposées
-   dans la datasheet (Table 14). J'ai eu de bons résultats avec la valeur 10,4 kHz (Modulation OOK).
+   dans la datasheet (Table 14). J'ai eu de très bons résultats avec la valeur 31.3 kHz (Modulation OOK).
 
     > En revanche, j'ai eu de mauvais résultats en utilisant une largeur de bande plus basse comme
     > par exemple avec la valeur par défaut de 5.2 kHz.
     {: .prompt-info }
+
+   Après avoir fixé cette valeur, une seule de mes télécommande sur les 9 n'est pas bien reconnue.
 
    Données du registre RegRxBw (0x19) :
 
     | Bits | Valeur | Signification
     |------|--------|--------------
     | 7-5  | 010    | DCC (Cut-off frequency)
-    | 4-3  | 10     | Channel filter bandwidth control (10 -> RxBwMant = 20)
-    | 2-0  | 100    | 10.4 kHz
+    | 4-3  | 00     | Channel filter bandwidth control (00 -> RxBwMant = 16)
+    | 2-0  | 011    | 31.3 kHz
 
 5. OOK Peak & Fix threshold
 
@@ -227,8 +229,8 @@ les signaux de mes télécommandes :
 
    De même avec le mode "average" où j'ai tout le temps de la friture sur la ligne.
 
-   Le seul type de seuil que j'arrive à faire marcher c'est le type "peak" avec toutes les valeurs
-   par défaut.
+   Le seul type de seuil que j'arrive à faire marcher c'est le type "peak" avec une période de décrément
+   à une fois tou s les 8 "chips".
 
    Données du registre RegOokPeak (0x1B) :
 
@@ -236,7 +238,7 @@ les signaux de mes télécommandes :
     |------|--------|--------------
     | 7-6  | 01     | threshold type "peak"
     | 5-3  | 000    | Taille du décrément à 0,5 dB
-    | 2-0  | 000    | Périod du décrément à "once per chip"
+    | 2-0  | 011    | Périod du décrément à "once every 8 chip"
 
    Pour une raison que j'ignore, l'alimentation du registre "RegOokFix" change le comportement de
    la réception même si l'on est en threshold type "peak".
@@ -283,7 +285,17 @@ les signaux de mes télécommandes :
     |------|-----------------|--------------
     | 7-0  | 11011101 (0xDD) | LSB de la fréquence
 
-7. Calibration
+7. Mode haute sensibilité
+   
+   J'active également le mode haute sensibilité.
+
+   Données du registre RegTestLna (0x58) :
+
+    | Bits | Valeur          | Signification
+    |------|-----------------|--------------
+    | 7-0  | 00101101 (0x2D) | High sensitivity mode
+
+8. Calibration
 
    Pour la gloire de la horde, j'effectue aussi une calibration de l'oscillateur (mais je doute
    fort que celà est un impacte fort sur la lecture).
@@ -295,7 +307,7 @@ les signaux de mes télécommandes :
    Puis, j'attends patiemment que le bit n°6 de ce même registre soit positionné à 1. Cela indique
    que la calibration est terminée.
 
-8. Activation de la réception (mode RX)
+9. Activation de la réception (mode RX)
 
    Enfin, j'active le module en mode réception. Pour celà, il suffit de positionner les bits n°4 à 2
    avec la valeur 0b100.
@@ -374,3 +386,5 @@ pour coder une librairy dédiée au RFM69HCW.
 
 Usage de ce [projet](https://github.com/etimou/SomfyRTS/tree/master)
 pour extraire le bon réglage du module.
+
+Documentation sur la [Démodulation OOK](https://community.silabs.com/s/article/ook-direct-mode-demodulation-on-ezradiopro?language=en_US).
