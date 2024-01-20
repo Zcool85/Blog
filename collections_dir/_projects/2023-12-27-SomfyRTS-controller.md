@@ -1,7 +1,7 @@
 ---
 title:  "Controller de volet roulant Somfy RTS"
 type: Domotique
-last_modified_at: 2024-01-19 23:00:00 +0100
+last_modified_at: 2024-01-20 17:45:00 +0100
 state: En cours
 math: true
 ---
@@ -53,7 +53,7 @@ téléphone ou depuis internet.
 
 Pour pouvoir communiquer avec les volets en RTS, j'ai décidé d'utiliser le module
 RFM69HCW (module qui semble le plus simple à utiliser pour ce type de projet). De plus,
-de nombreux projets utilise ce type de module pour faire fonctionner leur propre
+de nombreux projets utilisent ce type de module pour faire fonctionner leur propre
 volet roulant Somfy.
 
 Bien entendu, ce projet me permettra de me familiariser avec les ESP32 et l'usage
@@ -66,7 +66,7 @@ Voici le pinout du module RFM :
 ![Broches du module RFM69HCW](/assets/projects/SomfyRTS/RFM69HCW_pinout.png){: width="250" }
 _Brochage du module RFM68HCW_
 
-l'ESP32 que j'utilise est une des première verison montée sur plaque de développement:
+l'ESP32 que j'utilise pour le moment est une des première verison montée sur plaque de développement :
 
 ![Broches du module de dev ESP32](/assets/datasheets/esp32/esp_wroom32_breakout_pin.jpg){: width="500" }
 _Brochage du module de dev ESP32_
@@ -108,12 +108,17 @@ du protocole faite par [PushStack](https://pushstack.wordpress.com/somfy-rts-pro
 
 J'ai vraiement __bien__ galéré sur le bon paramétrage du module RFM69HCW en mode
 réception OOK... Et la datasheet n'est pas super explicite sur la manière d'utiliser
-ce mode.
+ce mode (Et il faut l'avouer, je n'y connais rien en radiofréquences :sweat_smile:).
 
 ### Paramétrage du module RFM69HCW
 
+Afin de procéder au paramétrage du module, j'ai effectué de nombreux essais de
+paramétrages différents. J4ai donc procédé de manière très empirique vu que mes
+connaissances en radiofréquence sont proches de zéro.
+
 Voici donc le paramétrage fonctionnel chez moi pour intercepter correctement
-les signaux de mes télécommandes :
+les signaux de toutes mes télécommandes (même si elles sont situées aux 4 coins
+de la maison) :
 
 1. SPI
    
@@ -149,7 +154,8 @@ les signaux de mes télécommandes :
     | 2    | -      | Non utilisé
     | 1-0  | 00     | Pas de shaping
 
-    > Je n'ai pas constaté de différence entre les différents shaping possibles.
+    > JE n'ai aucune idée de ce qu'est le shaping et son utilité. En tout cas, je n'ai constaté
+    > aucune différence en l'activant ni même entre les différents shaping possibles.
     {: .prompt-info }
 
 3. Bitrate
@@ -169,16 +175,20 @@ les signaux de mes télécommandes :
     ![Bitrate trop élevé](/assets/projects/SomfyRTS/bitrate_trop_eleve.png){: width="500" }
     _Bitrate trop élevé : Détections de fronts montant/descendant non désirés_
    
-   Il s'avère que le paramètre de bande passante (Bandwith) a complètement changé la donne et m'a
-   permis d'avoir des résultats très bon avec un bitrate élevé (Cf. Point qui suit).
+   Malgré tous mes essais en faisant varier ce paramètre, je n'arrivais pas avoir des résultats
+   satisfaisant juisqu'à ce que je modifie le paramètre de bande passante (Bandwith). La modification
+   de la bande passante a complètement changé la donne et m'a permis d'avoir des résultats bien
+   meilleurs et plus stable (Cf. Point qui suit).
 
    Toujours d'après mes lecture, il semble qu'utiliser un bitrate plus élevé que les impulsions
    s'appelle de l'oversampling.
 
    D'après l'analyse de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/), un bit est
    transmis en $604\,\mu s$; soit un biterate de $\frac{1}{604 \times 10^{-6}} \approx 1655\,bits/s$.
-   En utilisant ce bitrate, mes lectures sont correctes, outefois parmis toutes les trames que
-   j'ai visualisées, j'ai constaté que deux bits peuvent être transmis entre $1204\,\mu s$ et $1392\,\mu s$.
+   En utilisant ce bitrate, mes lectures sont plutôt correctes :blush:. D'ailleurs il doit y avoir des
+   tolérances importantes car il faut un bitrate inférieur à $1000\,bits/s$ pour que je commence à
+   constater des pertes d'impulsions, ou alors un bitrate supérieur à $2500\,bits/s$ pour que je
+   commence à constater l'apparition de glitchs.
 
    La datasheet indique qu'il faut appliquer la formule suivante pour déterminer la valeur des registres
    RegBitrateMsb (0x03) et RegBitrateLsb (0x04) : $$\frac{F_{XOSC}}{BitRate}$$.
@@ -201,8 +211,8 @@ les signaux de mes télécommandes :
 
 4. Bandwith de réception
 
-   Pour ce paramètre, j'ai testé de manière empirique les valeurs proposées
-   dans la datasheet (Table 14). J'ai eu de très bons résultats avec la valeur 31.3 kHz (Modulation OOK).
+   Pour ce paramètre, j'ai testé de manière empirique les valeurs proposées dans la datasheet
+   (Table 14). J'ai eu de très bons résultats avec la valeur 31.3 kHz (Modulation OOK).
 
     > En revanche, j'ai eu de mauvais résultats en utilisant une largeur de bande plus basse comme
     > par exemple avec la valeur par défaut de 5.2 kHz.
@@ -229,8 +239,8 @@ les signaux de mes télécommandes :
 
    De même avec le mode "average" où j'ai tout le temps de la friture sur la ligne.
 
-   Le seul type de seuil que j'arrive à faire marcher c'est le type "peak" avec une période de décrément
-   à une fois tou s les 8 "chips".
+   Le seul type de seuil que j'arrive à faire marcher c'est le type "peak". J'ai adapté la période de décrément
+   à une fois tous les 8 "chips", ce qui a permis à ce que j'arrive à "sniffer" TOUTES mes télécommandes ! :sunglasses:
 
    Données du registre RegOokPeak (0x1B) :
 
@@ -244,13 +254,13 @@ les signaux de mes télécommandes :
    la réception même si l'on est en threshold type "peak".
 
    Dans mon cas, les meilleurs résultats ont été obtenu en fixant le registre "RegOokFix" (0x1D) à
-   une valeur de 40 dB.
+   une valeur de 30 dB.
 
-   Données du registre RegOokFix (0x1D) :
+   Données du registre RegOokFix (0x1E) :
 
     | Bits | Valeur          | Signification
     |------|-----------------|--------------
-    | 7-0  | 00101000 (0x28) | Seuil du mode "fixed" en dB (0x28 = 40 dB)
+    | 7-0  | 00011110 (0x1E) | Seuil du mode "fixed" en dB (0x1E = 30 dB)
 
 6. Fréquence
 
@@ -298,7 +308,7 @@ les signaux de mes télécommandes :
 8. Calibration
 
    Pour la gloire de la horde, j'effectue aussi une calibration de l'oscillateur (mais je doute
-   fort que celà est un impacte fort sur la lecture).
+   fort que celà est un impacte important sur la lecture).
 
    Je positionne donc le bit n°7 du registre "RegOsc1" (0x0A) permettant de déclancher
    la calibration de l'oscillateur (ATTENTION : Cette calibration ne peut se faire qu'en mode
@@ -323,7 +333,7 @@ analyseur logique pour pouvoir visualiser les trames du module RFM69HCW...
 Voici la configuration qui marche chez moi avec mon analyseur logique :
 
 - Mode : Manchester
-- Bit rate : 770 bits/s
+- Bit rate : 780 bits/s
 - Edge polarity : negative edge is binary zero
 - Bits per Frame : 8
 - Significant bit : MSB first
@@ -337,9 +347,6 @@ Et là, bingo, tout est nikel :
 
 ![Exemple de trame lue](/assets/projects/SomfyRTS/Exemple_trame.png)
 _Exemple de trame lue_
-
-> Cette trame a été lue depuis une télécommande "Telis 4 RTS".
-{: .prompt-info }
 
 ### Interprétation d'une trame
 
@@ -355,24 +362,22 @@ Quelques exemples :
 - Les impulsions de "hw.sync." sont plutot de l'ordre de 2,6ms
 - Les symboles ont une impusion d'environ 1300/1350us
 
-> Il est tout a fait plausible que ces écarts soient liés à mon équipement (chinois à pas cher) qui est
-> très certainement moins précis, ou alors à la télécommande que j'ai utilisée.
+> Il est tout a fait plausible que ces écarts soient liés aux télécommandes que j'ai utilisée.
+> D'ailleurs, les temps que je constate sont souvent différents d'une télécommande à une autre.
 {: .prompt-info }
 
-### Cas des télécommandes "Centralis RTS"
+## Code de lecture d'une trame
 
-Par curiosité, j'ai été analyser une trame envoyée par mes télécommandes positionnée juste à côté de
-mes fenêtres (des "Centralis RTS")... Et là, stupeur ! Les trames sont bien différentes :
+Concernant le code pour lire une trame SomfyRTS, il suffit d'aller sur mon repo GitHub.
 
-![Exemple de trame Centralis](/assets/projects/SomfyRTS/trame_centralis_rts.png)
-_Exemple de trame Centralis_
+## La suite...
 
-On retrouve bien toutes les phases, mais cette fois-ci, on se retrouve avec des impulsions au lieu de niveaux
-logiques maintenus... Comme si chaque front montant et descendant du protocol manchester était chacun
-représenté par une impulsion.
-
-L'algorithme pour que mes lectures soient compatibles entre les deux téélcommande va être plus complexe
-que prévu...
+Pour la suite de ce projet, je prévois :
+- Un bon coup de refactoring de code et créer ma propre library pour le RFM69
+- Trouver un écran tactile et trouver comment l'utiliser avec un ESP32
+- Créer un circuit imprimé avec tout ce beau monde
+- Créer un beau boitier pour tout mettre dedans
+- Et coder une petite interface pour pouvoir gérer mes volets depuis ce futur boitier
 
 ## Liens externes et documentations
 
