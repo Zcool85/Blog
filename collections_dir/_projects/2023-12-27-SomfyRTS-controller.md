@@ -1,7 +1,7 @@
 ---
 title:  "Controller de volet roulant Somfy RTS"
 type: Domotique
-last_modified_at: 2024-01-20 17:45:00 +0100
+last_modified_at: 2024-02-03 15:37:00 +0100
 state: En cours
 math: true
 ---
@@ -80,7 +80,11 @@ J'ai effectué le branchement suivant :
 | SCK          | 30 (GIOP18)
 | NSS          | 29 (GIOP5)
 | DIO2         | 23 (GIOP15)
-| RESET        | GND
+| RESET        | 27 (GPIO16)
+
+> L'usage de la broche RESET est facultatif. S'il n'est pas connecté à une broche de l'ESP,
+> alors il faut la connecter à la masse (GND).
+{: .prompt-info }
 
 > J'ai "bêtement" utilisé les broches du VSPI du module ESP32. Cela me permet d'utiliser
 > le code par défaut fourni par Espressif pour gérer le protocol SPI avec le module ESP32.
@@ -154,7 +158,7 @@ de la maison) :
     | 2    | -      | Non utilisé
     | 1-0  | 00     | Pas de shaping
 
-    > JE n'ai aucune idée de ce qu'est le shaping et son utilité. En tout cas, je n'ai constaté
+    > Je n'ai aucune idée de ce qu'est le shaping et son utilité. En tout cas, je n'ai constaté
     > aucune différence en l'activant ni même entre les différents shaping possibles.
     {: .prompt-info }
 
@@ -176,11 +180,11 @@ de la maison) :
     _Bitrate trop élevé : Détections de fronts montant/descendant non désirés_
    
    Malgré tous mes essais en faisant varier ce paramètre, je n'arrivais pas avoir des résultats
-   satisfaisant juisqu'à ce que je modifie le paramètre de bande passante (Bandwith). La modification
+   satisfaisant jusqu'à ce que je modifie le paramètre de bande passante (Bandwith). La modification
    de la bande passante a complètement changé la donne et m'a permis d'avoir des résultats bien
-   meilleurs et plus stable (Cf. Point qui suit).
+   meilleurs et plus stables (Cf. Point qui suit).
 
-   Toujours d'après mes lecture, il semble qu'utiliser un bitrate plus élevé que les impulsions
+   Toujours d'après mes lectures, il semble qu'utiliser un bitrate plus élevé que les impulsions
    s'appelle de l'oversampling.
 
    D'après l'analyse de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/), un bit est
@@ -253,7 +257,7 @@ de la maison) :
    Pour une raison que j'ignore, l'alimentation du registre "RegOokFix" change le comportement de
    la réception même si l'on est en threshold type "peak".
 
-   Dans mon cas, les meilleurs résultats ont été obtenu en fixant le registre "RegOokFix" (0x1D) à
+   Dans mon cas, les meilleurs résultats ont été obtenus en fixant le registre "RegOokFix" (0x1D) à
    une valeur de 30 dB.
 
    Données du registre RegOokFix (0x1E) :
@@ -374,10 +378,11 @@ Concernant le code pour lire une trame SomfyRTS, il suffit d'aller sur mon repo 
 
 Pour la suite de ce projet, je prévois :
 - Un bon coup de refactoring de code et créer ma propre library pour le RFM69
+- Faire un crictuit temporaire me permettant de tester l'émission d'une trame (et donc piloter pour de vrai un volet)
 - Trouver un écran tactile et trouver comment l'utiliser avec un ESP32
+- Coder une petite interface pour pouvoir gérer mes volets depuis ce futur boitier
 - Créer un circuit imprimé avec tout ce beau monde
 - Créer un beau boitier pour tout mettre dedans
-- Et coder une petite interface pour pouvoir gérer mes volets depuis ce futur boitier
 
 ## Liens externes et documentations
 
