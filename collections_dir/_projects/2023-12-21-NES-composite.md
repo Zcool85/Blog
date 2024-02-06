@@ -23,7 +23,7 @@ Dépôt GitHub : [https://github.com/Zcool85/NESComposite](https://github.com/Zc
   + [x] Shéma de principe
   + [x] Documentation
   +  [ ] Tester une autre version du [circuit composite](https://ctrl-alt-rees.com/2019-01-26-nintendo-famicom-composite-video-output-mod.html){:target="_blank"}
-         Inspiré du site [nesdev](https://forums.nesdev.org/viewtopic.php?f=9&t=10554)
+         Inspiré du site [nesdev](https://forums.nesdev.org/viewtopic.php?f=9&t=10554){:target="_blank"}
 - [x] Faire le sous-projet "Audio mod"
   + [x] Shéma de principe
   + [x] Documentation
@@ -45,7 +45,7 @@ schéma suivant :
 ![NES Composite](/assets/projects/NESComposite/Composite video mod.jpg)
 _Schéma de principe pour la sortie composite NES_
 
-> Ce schéma est issu de [nesdev](https://www.nesdev.org/wiki/PPU_pinout)
+> Ce schéma est issu de [nesdev](https://www.nesdev.org/wiki/PPU_pinout){:target="_blank"}
 {: .prompt-info }
 
 ![Broches PPU](/assets/projects/NESComposite/nes_ppu.jpeg)

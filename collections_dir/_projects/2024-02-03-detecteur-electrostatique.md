@@ -11,3 +11,5 @@ Un tout petit projet permettant de détecter des champs électrostatique.
 
 Dépôt GitHub : [https://github.com/Zcool85/ElectrostaticDetector](https://github.com/Zcool85/ElectrostaticDetector){:target="_blank"}
 
+TODO :
+- Prendre des photos du projet terminé

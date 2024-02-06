@@ -30,19 +30,19 @@ simultanée de 4 volets maximum.
 Chaque volet roulant mémorise les télécommandes qui peuvent le piloter. Chaque volet
 roulant peut mémoriser jusqu'à 12 télécommandes.
 
-Doc pour [Centralis RTS](https://service.somfy.com/downloads/fr_v5/noticecentralis_rts.pdf).
+Doc pour [Centralis RTS](https://service.somfy.com/downloads/fr_v5/noticecentralis_rts.pdf){:target="_blank"}.
 
-Doc pour [Telis 4 RTS](https://service.somfy.com/downloads/fr_v5/noticetelis_1_rts.pdf).
+Doc pour [Telis 4 RTS](https://service.somfy.com/downloads/fr_v5/noticetelis_1_rts.pdf){:target="_blank"}.
 
 Quelques docs contenant pas mal d'astuces :
 
-- [Enregistrer une télécommande Telis 4 RTS depuis des télécommandes individuelles](https://service.somfy.com/downloads/fr_v5/programmationde_la_telecommande_telis_4_rts_depuis_des_telecommandes_individuelles.pdf)
-- [Enregistrer une télécommande Telis 4 RTS depuis un point de commande Inis RT](https://service.somfy.com/downloads/fr_v5/programmationde_la_telecommande_telis_4_rts_depuis_un_point_decommande_inis_rt.pdf)
-- [Aide au patamétrage](https://service.somfy.com/downloads/fr_v5/aideau_parametrage_telis_4_rts.pdf)
-- [Remplacer une Telis 4 sans autre télécommande](https://service.somfy.com/downloads/fr_v5/changementde_telecommande_telis_4_rts_sans_autres_telecommandes.pdf)
-- [Copier une Telis 4 RTS sur une nouvelle Telis 4 RTS](https://www.somfy.fr/fr_v5/fr/fr-fr/file.cfm?contentid=301424)
+- [Enregistrer une télécommande Telis 4 RTS depuis des télécommandes individuelles](https://service.somfy.com/downloads/fr_v5/programmationde_la_telecommande_telis_4_rts_depuis_des_telecommandes_individuelles.pdf){:target="_blank"}
+- [Enregistrer une télécommande Telis 4 RTS depuis un point de commande Inis RT](https://service.somfy.com/downloads/fr_v5/programmationde_la_telecommande_telis_4_rts_depuis_un_point_decommande_inis_rt.pdf){:target="_blank"}
+- [Aide au patamétrage](https://service.somfy.com/downloads/fr_v5/aideau_parametrage_telis_4_rts.pdf){:target="_blank"}
+- [Remplacer une Telis 4 sans autre télécommande](https://service.somfy.com/downloads/fr_v5/changementde_telecommande_telis_4_rts_sans_autres_telecommandes.pdf){:target="_blank"}
+- [Copier une Telis 4 RTS sur une nouvelle Telis 4 RTS](https://www.somfy.fr/fr_v5/fr/fr-fr/file.cfm?contentid=301424){:target="_blank"}
 
-Doc pour [désappairer](https://service.somfy.com/downloads/fr_v5/supprimerune_telecommande_vr.pdf)
+Doc pour [désappairer](https://service.somfy.com/downloads/fr_v5/supprimerune_telecommande_vr.pdf){:target="_blank"}
 une télécommande.
 
 ## Choix du hardware
@@ -108,7 +108,7 @@ protocole Somfy.
 
 Pour ce faire, je me suis mis à l'implémentration d'un "sniffer" de trame Somfy.
 Je ne suis pas partie de la page blanche et je me suis inspiré par les exmplications
-du protocole faite par [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/).
+du protocole faite par [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/){:target="_blank"}.
 
 J'ai vraiement __bien__ galéré sur le bon paramétrage du module RFM69HCW en mode
 réception OOK... Et la datasheet n'est pas super explicite sur la manière d'utiliser
@@ -187,7 +187,7 @@ de la maison) :
    Toujours d'après mes lectures, il semble qu'utiliser un bitrate plus élevé que les impulsions
    s'appelle de l'oversampling.
 
-   D'après l'analyse de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/), un bit est
+   D'après l'analyse de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/){:target="_blank"}, un bit est
    transmis en $604\,\mu s$; soit un biterate de $\frac{1}{604 \times 10^{-6}} \approx 1655\,bits/s$.
    En utilisant ce bitrate, mes lectures sont plutôt correctes :blush:. D'ailleurs il doit y avoir des
    tolérances importantes car il faut un bitrate inférieur à $1000\,bits/s$ pour que je commence à
@@ -356,7 +356,7 @@ _Exemple de trame lue_
 
 Maintenant que l'on arrive à récupérer une trame bien propre, je me suis atelé au décodage de celle-ci.
 
-Pour le coup, les travaux de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/) sont très bien
+Pour le coup, les travaux de [PushStack](https://pushstack.wordpress.com/somfy-rts-protocol/){:target="_blank"} sont très bien
 et je n'ai que peu de chose à ajouter si ce n'est que chez moi je constate des timing toujours un peu plus long
 que les siens.
 
@@ -386,15 +386,15 @@ Pour la suite de ce projet, je prévois :
 
 ## Liens externes et documentations
 
-Documentations générales des [Volets roulant Somfy](https://www.somfy.fr/assistance/notices/volet-roulant/radio-rts).
+Documentations générales des [Volets roulant Somfy](https://www.somfy.fr/assistance/notices/volet-roulant/radio-rts){:target="_blank"}.
 
-Explication du [protocole](https://pushstack.wordpress.com/somfy-rts-protocol/)
+Explication du [protocole](https://pushstack.wordpress.com/somfy-rts-protocol/){:target="_blank"}
 Somfy RTS.
 
-Exemple de [bibliothèque C++](http://www.airspayce.com/mikem/arduino/RadioHead/index.html)
+Exemple de [bibliothèque C++](http://www.airspayce.com/mikem/arduino/RadioHead/index.html){:target="_blank"}
 pour coder une librairy dédiée au RFM69HCW.
 
-Usage de ce [projet](https://github.com/etimou/SomfyRTS/tree/master)
+Usage de ce [projet](https://github.com/etimou/SomfyRTS/tree/master){:target="_blank"}
 pour extraire le bon réglage du module.
 
-Documentation sur la [Démodulation OOK](https://community.silabs.com/s/article/ook-direct-mode-demodulation-on-ezradiopro?language=en_US).
+Documentation sur la [Démodulation OOK](https://community.silabs.com/s/article/ook-direct-mode-demodulation-on-ezradiopro?language=en_US){:target="_blank"}.

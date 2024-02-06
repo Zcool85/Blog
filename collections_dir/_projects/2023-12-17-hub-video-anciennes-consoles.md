@@ -39,9 +39,9 @@ Dans l'idéal, j'aimerais pouvoir brancher toutes ces consoles :
 ## Formats vidéo des consoles
 
 **TODO**
-Cf. [optimal timing for OSSC](https://junkerhq.net/xrgb/index.php?title=Optimal_timings)
+Cf. [optimal timing for OSSC](https://junkerhq.net/xrgb/index.php?title=Optimal_timings){:target="_blank"}
 
-Pour la NES/SNES, prévoir un dejitter. Infos [ici](https://shmups.system11.org/viewtopic.php?f=6&t=61285) et projet [ici](https://github.com/marqs85/snes_dejitter).
+Pour la NES/SNES, prévoir un dejitter. Infos [ici](https://shmups.system11.org/viewtopic.php?f=6&t=61285){:target="_blank"} et projet [ici](https://github.com/marqs85/snes_dejitter){:target="_blank"}.
 
 ## Pinout cables
 
@@ -180,7 +180,7 @@ _Visuel prise VGA femelle_
 > seulement le câble du moniteur. Les constructeurs ont préféré intégrer un hub
 > USB sur les écrans.
 >
-> Cf. [DDC infos](https://en.wikipedia.org/wiki/Display_Data_Channel)
+> Cf. [DDC infos](https://en.wikipedia.org/wiki/Display_Data_Channel){:target="_blank"}
 {: .prompt-info }
 
 ## Adaptateurs
@@ -193,11 +193,11 @@ Le montage suivant permet de créer un adaptateur SCART vers/depuis un signal S-
 
 ### Adapteur SCART vers VGA
 
-**TODO** : Etudier et reprendre le schéma [ici](https://old.pinouts.ru/Audio-Video-Hardware/scart2vga_scheme_pinout.shtml).
+**TODO** : Etudier et reprendre le schéma [ici](https://old.pinouts.ru/Audio-Video-Hardware/scart2vga_scheme_pinout.shtml){:target="_blank"}.
 
 ### Adapteur VGA vers SCART
 
-**TODO** : Etudier et reprendre le schéma [ici](https://old.pinouts.ru/Audio-Video-Hardware/vga2scart_scheme_pinout.shtml).
+**TODO** : Etudier et reprendre le schéma [ici](https://old.pinouts.ru/Audio-Video-Hardware/vga2scart_scheme_pinout.shtml){:target="_blank"}.
 
 ## Pinout des consoles
 
@@ -206,7 +206,7 @@ Toutes les consoles n'utilisent pas toutes les capacités / formats possibles d'
 L'objectif ici est de présenter le brochage utilisé par chaque console et indiquer le format
 de sortie réel.
 
-> Une liste assez complète de pleins de schéma de consoles en tout genre : [gamex](https://gamesx.com/wiki/doku.php?id=schematics:console_related_schematics)
+> Une liste assez complète de pleins de schéma de consoles en tout genre : [gamex](https://gamesx.com/wiki/doku.php?id=schematics:console_related_schematics){:target="_blank"}
 {: .prompt-info }
 
 Récap' :
@@ -223,7 +223,7 @@ Récap' :
 | PS3              | Yes  | Yes
 | Dreamcast        | Yes  | Yes
 
-> A regarder pour tout sortir en VGA : [jeffqchen](https://github.com/jeffqchen/Console-VGA-Dongle-Series/tree/main)
+> A regarder pour tout sortir en VGA : [jeffqchen](https://github.com/jeffqchen/Console-VGA-Dongle-Series/tree/main){:target="_blank"}
 {: .prompt-info }
 
 ### Master system II
@@ -234,14 +234,14 @@ Récap' :
 **TODO**
 ![Master system II Pinout](/assets/consoles_pinout/mastersystem.png)
 
-> Le site de [Sylesis](https://www.sylesis.fr/inside-ms1/index.php) (en http) précise que :
+> Le site de [Sylesis](http://www.sylesis.fr/inside-ms1/index.php){:target="_blank"} précise que :
 > - Pin 3 : Blanck
 > - Pin 7 : Synchro
 >
 > ... A creuser !
 {: .prompt-warning }
 
-> A creuser aussi : [RGB Booster](https://master-system.forumactif.org/t4286-rgb-booster-pour-mark-iii)
+> A creuser aussi : [RGB Booster](https://master-system.forumactif.org/t4286-rgb-booster-pour-mark-iii){:target="_blank"}
 {: .prompt-tip }
 
 ### NES
@@ -294,7 +294,7 @@ Tester un RGB ampifier pour la NES ? [Lien](https://gamesx.com/wiki/doku.php?id=
 ## Première réflexions de circuits
 
 **TODO**
-Cf. [Analog divice article](https://www.analog.com/en/analog-dialogue/articles/hdmi-made-easy.html)
+Cf. [Analog divice article](https://www.analog.com/en/analog-dialogue/articles/hdmi-made-easy.html){:target="_blank"}
 
 ### Colorimétrie de la NES
 
