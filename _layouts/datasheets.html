@@ -16,11 +16,13 @@ list all datasheets types
     {% endunless %}
 {% endfor %}
 
+{% assign distinct_datasheet_types_sorted = distinct_datasheet_types | sort: '.'  %}
+{% assign datasheets_sorted = site.datasheets | sort: 'title'  %}
 
-{% for datasheet_type in distinct_datasheet_types %}
+{% for datasheet_type in distinct_datasheet_types_sorted %}
 <ul class="content ps-0">
     <h2>{{ datasheet_type }}</h2>
-    {% for datasheet in site.datasheets %}
+    {% for datasheet in datasheets_sorted %}
         {% if datasheet.type == datasheet_type %}
         <li>
             <a href="{{ datasheet.url | relative_url }}">{{ datasheet.title }}</a>
