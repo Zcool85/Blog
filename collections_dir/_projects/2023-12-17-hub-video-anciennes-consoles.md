@@ -189,7 +189,7 @@ _Visuel prise VGA femelle_
 
 Le montage suivant permet de créer un adaptateur SCART vers/depuis un signal S-Video/composite :
 
-![SCART to S-Video adapter](/assets/scart/SCART - S-Video Adapter.svg)
+![SCART to S-Video adapter](/assets/scart/SCART_-_S-Video_Adapter.svg)
 
 ### Adapteur SCART vers VGA
 

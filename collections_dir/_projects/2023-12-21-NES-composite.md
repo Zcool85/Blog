@@ -42,7 +42,7 @@ Le PPU de la console sort directement le signal vidéo composite depuis la broch
 possible de récupérer le signal directement depuis cette broche et d'amplifier le signal via le
 schéma suivant :
 
-![NES Composite](/assets/projects/NESComposite/Composite video mod.jpg)
+![NES Composite](/assets/projects/NESComposite/Composite_video_mod.jpg)
 _Schéma de principe pour la sortie composite NES_
 
 > Ce schéma est issu de [nesdev](https://www.nesdev.org/wiki/PPU_pinout){:target="_blank"}
@@ -58,7 +58,7 @@ mixer le canal audio N°2 du CPU avec le canal mono sur la voie de droite.
 
 Le schéma suivant présente le mixing :
 
-![Audio Stereo](/assets/projects/NESComposite/audio_stereo mod.png)
+![Audio Stereo](/assets/projects/NESComposite/audio_stereo_mod.png)
 _Schéma de principe pour la sortie audio stéréo_
 
 > Les résistances variables permettent de mixer plus ou moins le canal mono sur chacune des voies.
