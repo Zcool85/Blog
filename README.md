@@ -4,7 +4,6 @@ Site de réflexion sur mes projets
 
 TODO :
 
-- Importer mars 2012 dans un projet
 - importer septembre 2013 dans un post
 - importer mai 2014 dans un post
 - importer novembre 2015 dans un post
