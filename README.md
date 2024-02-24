@@ -4,7 +4,6 @@ Site de réflexion sur mes projets
 
 TODO :
 
-- importer septembre 2013 dans un post
 - importer mai 2014 dans un post
 - importer novembre 2015 dans un post
 - importer BatteriesStepUp dans un projet (fev. 2023)
