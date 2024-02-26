@@ -4,8 +4,6 @@ Site de réflexion sur mes projets
 
 TODO :
 
-- importer mai 2014 dans un post
-- importer novembre 2015 dans un post
 - importer BatteriesStepUp dans un projet (fev. 2023)
 - importer Twilight Switch dans un projet (fev. 2023)
 - importer FanRegulator dans un projet (fev. 2023)
