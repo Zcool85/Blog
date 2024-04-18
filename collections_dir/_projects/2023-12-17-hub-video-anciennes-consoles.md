@@ -289,6 +289,42 @@ Tester un RGB ampifier pour la NES ? [Lien](https://gamesx.com/wiki/doku.php?id=
 
 ## Les différents formats vidéos
 
+### HDMI et compatibilité DVI
+
+Source [Wikipedia](https://fr.wikipedia.org/wiki/High-Definition_Multimedia_Interface) :
+
+Le HDMI Type A est rétro-compatible avec le DVI Single-link (DVI-D, DVI-I mais pas DVI-A), lequel est largement utilisé
+pour les moniteurs informatiques et les cartes graphiques d'ordinateurs. Ainsi, avec un simple adaptateur, tout appareil
+source qui exploite la norme DVI-D est quasi compatible avec un écran à ce standard et vice versa ; cependant, les données
+audio ne seront pas toujours transmises (norme TMDS, audio pendant le blanking) mais la connectique le permet et
+certains produits (cartes graphiques haut de gamme, démodulateurs satellites...) l'exploitent.
+En revanche, les données de contrôle à distance (broche CEC) propres au HDMI ne pourront être utilisées puisqu'elles
+n'existent pas pour la connectique DVI.
+Sur le même principe, le HDMI Type B est rétro-compatible avec la connectique DVI Dual-link.
+
+Largeur de bande pour le flux vidéo numérique : de 25 MHz à 340 MHz (Type A, norme 1.3) et jusqu'à 680 MHz (Type B).
+Les formats vidéo qui exploitent une bande passante inférieure à 25 MHz (exemple : 13,5 MHz pour 480i/NTSC) sont transmis
+en utilisant un schéma de répétition des pixels.
+
+__HDMI 1.0__
+Spécification initiale, publié le 9 décembre 20029
+Une seule interface de connexion pour la transmission audio et vidéo ;
+Une bande passante de type TMDS de 4,9 Gbit/s maximum
+Spécification Vidéo basée sur DVI 1.0. 480i/p, 576i/p, 720p, 1080i.
+Audio : Dolby Digital, DD EX, DTS, DTS ES, DTS 96/24, PCM 192/24 7.1 canaux.
+
+EDID EEPROM : https://ww1.microchip.com/downloads/en/DeviceDoc/21682E.pdf
+Explication EDID pour VGA et HDMI : https://ez.analog.com/cfs-file/__key/communityserver-wikis-components-files/00-00-00-01-10/1351.ADV784x_5F00_EDID_5F00_overview.pdf
+EDID structure : https://glenwing.github.io/docs/VESA-EEDID-A2.pdf
+
+l'EDID sert à fournir les specs de l'écran au périphérique. Pas sur que celà me soit nécessaire pour mon projet.
+
+4 HDMI/DVI multiplexer to 1 output HDMI/DVI : https://www.analog.com/media/en/technical-documentation/data-sheets/adv3002.pdf
+
+
+Piste pour améliorer la qualité d'un signal RVB : https://www.analog.com/en/resources/reference-designs/circuits-from-the-lab/cn0275.html#rd-functionbenefits
+
+
 **TODO**
 
 ## Première réflexions de circuits
