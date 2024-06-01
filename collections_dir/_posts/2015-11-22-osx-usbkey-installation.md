@@ -1,30 +1,30 @@
 ---
 layout: post
 author: zcool
-title:  "Créer un support d’installation OS X sur clef USB"
+title:  "Créer un support d'installation OS X sur clef USB"
 categories: [Informatique, MacOS X]
 ---
 
-Si comme moi vous préférez conserver un support d’installation de vos systèmes OS X, voici
-une petite astuce permettant de créer un support d’installation de Mac OS X sur une clef USB.
+Si comme moi vous préférez conserver un support d'installation de vos systèmes OS X, voici
+une petite astuce permettant de créer un support d'installation de Mac OS X sur une clef USB.
 
 Il est possible, quelle que soit la version de Mac OS X, de créer une clef USB contenant le
-logicielle d’installation. Pour se faire :
+logicielle d'installation. Pour se faire :
 
-- Il faut disposer d’une clef USB avec suffisamment d’espace (8 Go minimum).
-- Il faut télécharger l’installation de Mac OS X sur le Mac App Store. Ce logicielle
+- Il faut disposer d'une clef USB avec suffisamment d'espace (8 Go minimum).
+- Il faut télécharger l'installation de Mac OS X sur le Mac App Store. Ce logicielle
   d'installation se comporte comme une application classique, sauf que si vous lancer
   l'installation, cette application se supprimera à la fin de l'installation. Il faudra alors
   re-télécharger le logiciel depuis le Mac App Store. L'application se nomme par exemple
   "Install OS X El Capitan.app" pour El Capitan, ou "Install OS X Yosemite.app" pour Yosemite, etc.
 
-Une fois ces deux pré-requis passé, la création de la clef USB d’installation se fait en deux étapes.
+Une fois ces deux pré-requis passé, la création de la clef USB d'installation se fait en deux étapes.
 
 La première étape consiste à formater la clef USB avec le système de fichier
 "Mac OS étendu (journalisé)" :
 
 - Brancher votre clef USB sur le Mac
-- Lancer l’outil "Utilitaire de disque" situé dans le répertoire "Utilitaires" du répertoire
+- Lancer l'outil "Utilitaire de disque" situé dans le répertoire "Utilitaires" du répertoire
   "Applications"
 - Sélectionner la clef USB dans la liste des périphériques et cliquer sur "Effacer". L'outil va alors
   vous demander comment formater la clef USB. Laisser le nom "Sans titre", sélectionner le format
@@ -46,9 +46,9 @@ d'installation téléchargé. Le nom "Sans titre" doit également être modifié
 la clef USB "Sans titre" lors de son formatage.
 
 A noter que la commande "sudo" demande les droits administrateur sur la machine. Elle vous
-demandera donc sans doute de saisir le mot de passe de l’administrateur.
+demandera donc sans doute de saisir le mot de passe de l'administrateur.
 
-L’opération peut prendre plusieurs dizaines de minutes en fonction de la vitesse de votre
+L'opération peut prendre plusieurs dizaines de minutes en fonction de la vitesse de votre
 disque et de votre clef USB.
 
 A la fin de l'opération, votre clef USB doit s'être renommée "Install OS X El Capitan" (ou

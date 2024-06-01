@@ -4,11 +4,9 @@ Site de réflexion sur mes projets
 
 TODO :
 
-- importer BatteriesStepUp dans un projet (fev. 2023)
-- importer Twilight Switch dans un projet (fev. 2023)
-- importer FanRegulator dans un projet (fev. 2023)
 - reprendre les quelques pages de court d'électronique
 - reprendre les pages du raspberry pi
+- Finaliser le projet "Piste de dés"
 - Ajouter le projet de tapis DDR
 
 ## Install
