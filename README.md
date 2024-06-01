@@ -4,8 +4,7 @@ Site de réflexion sur mes projets
 
 TODO :
 
-- reprendre les quelques pages de court d'électronique
-- Finaliser le projet "Piste de dés"
+- Ajouter un cours sur les batteries lithium
 - Ajouter le projet de tapis DDR
 
 ## Install
