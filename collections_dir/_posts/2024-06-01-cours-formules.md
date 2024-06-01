@@ -36,10 +36,10 @@ $C \Rightarrow$ Capacité du condensateur exprimée en Farads ($F$)
 
 La courbe de charge est asymptotique. Après le temps $T$, le condensateur est chargé à 70 %. Après un temps $T$ supplémentaire, il est chargé de 70 % + (70 % des 30 % restant). etc. Un condensateur ne sera donc jamais chargé au maximum.
 
-> NOTE : Un condensateur de $1 F$ serait composé de deux plaques de cuivre d'un mettre carré chacune espacées d'un millimètre.
+> Un condensateur de $1 F$ serait composé de deux plaques de cuivre d'un mettre carré chacune espacées d'un millimètre.
 {: .prompt-info }
 
-> ASTUCE : Un condensateur de $1 µF$ au Tantal peut être remplacé par un condensateur de $10 µF$ électrochimique.
+> Un condensateur de $1 µF$ au Tantal peut être remplacé par un condensateur de $10 µF$ électrochimique.
 {: .prompt-tip }
 
 
