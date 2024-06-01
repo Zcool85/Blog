@@ -7,7 +7,7 @@ categories: [Développement, CSharp]
 
 En temps normal, sans parler du GAC (Global Assembly Cache), toutes les DLL dont
 dépendent un binaire C# doivent se trouver dans le même répertoire que ce dernier
-pour qu'il puisse s'exécuter correctement… Malheureusement, plus les projets grossissent,
+pour qu'il puisse s'exécuter correctement... Malheureusement, plus les projets grossissent,
 et plus le nombre de DLL augmente. Ce qui rend l'organisation du répertoire du binaire
 quelque peu anarchique !
 

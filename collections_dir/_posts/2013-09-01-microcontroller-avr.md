@@ -9,7 +9,7 @@ Pour ce retour après plus d'un an, je me suis décidé à faire un article sur 
 avec les microcontrôleurs AVR.
 
 J'ai débuté avec l'ATtiny48PU. Ce dernier est en support PDIP 28 broches (je ne suis pas fan
-des composants CMS car je n'ai pas le matos pour les souder… Et encore moins pour graver les
+des composants CMS car je n'ai pas le matos pour les souder... Et encore moins pour graver les
 PCB avec des pistes aussi fines !). Bref, ce microcontrôleur est a mon sens très bien pour
 débuter pour plusieurs raisons :
 
@@ -38,7 +38,7 @@ d'écrire du code en assembleur, en C ou en C++ pour tous les microcontrôleurs 
 ceux qui ont l'habitude d'utiliser Visual Studio, je recommande vraiment Atmel Studio 6
 qui est en fait un Visual Studio décoré version Atmel.
 
-Enfin, pour programmer un microcontrôleur, il faut un programmateur… Là encore, il existe
+Enfin, pour programmer un microcontrôleur, il faut un programmateur... Là encore, il existe
 une foison d'outils sur le net... Et là encore, je n'ai pas cherché midi à quatorze heure,
 j'utilise simplement le programmateur ISP d'Atmel : [AVR ISP MkII](https://www.microchip.com/en-us/development-tool/atavrisp2){:target="_blank"}.
 Honnêtement, je trouve que le coût de ce programmateur n'est pas si excessif que ça, il est

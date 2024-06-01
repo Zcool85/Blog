@@ -5,7 +5,7 @@ title:  "Rafistolage de Pintech"
 categories: [Electronique, Réparations]
 ---
 
-Alors aujourd'hui, un pote m'a filé deux cymbales Pintech (TC10 et TC16) pour la batterie ion drum rocker… MAIS elles ne fonctionnent plus :sob:.
+Alors aujourd'hui, un pote m'a filé deux cymbales Pintech (TC10 et TC16) pour la batterie ion drum rocker... MAIS elles ne fonctionnent plus :sob:.
 
 ![Cymbale Pintech TC10](/assets/posts/Pintech01.jpg)
 _Cymbale Pintech TC10_
@@ -13,12 +13,12 @@ _Cymbale Pintech TC10_
 En fait, en démontant le petit boitier derrière la cymbale, on s'aperçoit de plusieurs choses :
 
 1. La cymbale n'est en fait qu'un bout de plastique en forme de cymbale avec
-   un transducteur piezo et un jack femelle… La Pintech TC10 est quand même à
+   un transducteur piezo et un jack femelle... La Pintech TC10 est quand même à
    plus de 35 $ pièce (le piezo et le jack ne représentent pas plus de 1.5 €
-   à eux deux)… Je ne suis pas certain qu'un bout de plastique moulé coûte
+   à eux deux)... Je ne suis pas certain qu'un bout de plastique moulé coûte
    plus de 30 $ à produire !! Bref !
 
-2. Le fil reliant le piezo et le jack est en fait sectionné… Rien de bien
+2. Le fil reliant le piezo et le jack est en fait sectionné... Rien de bien
    étonnant vu que l'ensemble est fixé sur de la mousse (et laisse donc les
    vibrations faire leur office)
 

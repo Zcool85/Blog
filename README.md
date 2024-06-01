@@ -5,7 +5,6 @@ Site de réflexion sur mes projets
 TODO :
 
 - reprendre les quelques pages de court d'électronique
-- reprendre les pages du raspberry pi
 - Finaliser le projet "Piste de dés"
 - Ajouter le projet de tapis DDR
 

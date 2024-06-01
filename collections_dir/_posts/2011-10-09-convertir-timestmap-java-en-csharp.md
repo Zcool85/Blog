@@ -10,7 +10,7 @@ que certaines données sont en fait des TimeStamp Java. Le TimeStamp est une uni
 de mesure du temps utilisé principalement en Java.
 
 Afin de pouvoir utiliser ces données dans mes traitements C#, j'ai fait quelques
-recherches sur le sujet…
+recherches sur le sujet...
 
 Le TimeStamp Java s'appuie sur une date de référence. Cette date est fixée
 au 1 janvier 1970 à minuit. En java, lorsque l'on utilise un TimeStamp, il s'agit en
@@ -19,17 +19,17 @@ réalité du nombre de millième de secondes écoulés depuis la date de référ
 est le tick (1 seconde vaut 10 000 000 ticks sous Windows).
 Cf. [https://msdn.microsoft.com/en-us/library/system.datetime.ticks.aspx](https://msdn.microsoft.com/en-us/library/system.datetime.ticks.aspx){:target="_blank"} pour le détail d'un DateTime C#.
 
-Et bien maintenant c'est tout simple ! Ce n'est qu'un peu de math… Je passe les
+Et bien maintenant c'est tout simple ! Ce n'est qu'un peu de math... Je passe les
 détails du calcul, mais il suffit de multiplier par 10 000 le TimeStamp Java
 pour obtenir un nombre de Ticks Windows. Une fois ce nombre calculé, je n'ai
 plus qu'à l'ajouter à ma date de référence (01/01/1970) et le tour est joué !
 
 Ah si, une dernière remarque : Il faut toujours penser aux fuseaux-horaires
-quand on joue avec les dates… Donc pour obtenir la vraie date dans le fuseau-horaire
-courant, il faut appliquer la fonction « ToLocaleTime ». Cette dernière se charge
+quand on joue avec les dates... Donc pour obtenir la vraie date dans le fuseau-horaire
+courant, il faut appliquer la fonction "ToLocaleTime". Cette dernière se charge
 d'appliquer les décalages horaires adéquat en fonction de la machine sur laquelle
 s'exécute le traitement. Ainsi, plus besoin de s'enquiquiner avec l'ajout d'une ou 
-deux heures…
+deux heures...
 
 Allez, un petit bout de code pour le fun :
 

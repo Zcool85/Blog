@@ -124,5 +124,5 @@ _Insoleuse terminée !!_
 
 Me voilà prêt à créer mes propres circuits imprimés !! :grin:
 
-Enfin presque… Car il faut une graveuse aussi... et un typon... Et des gants... Du perchlorure
+Enfin presque... Car il faut une graveuse aussi... et un typon... Et des gants... Du perchlorure
 de fer... Mais ça c'est pour une autre fois ! :grin:

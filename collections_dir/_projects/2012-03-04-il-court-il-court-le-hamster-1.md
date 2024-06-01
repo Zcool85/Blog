@@ -14,7 +14,7 @@ Comme toutes bonnes idées, les meilleures sont souvent les plus connes ! :yum:
 Depuis mi-décembre je planche sur un petit projet marrant à réaliser : Un compte-tour
 de hamster ! Cette idée m'est venue grâce à Sirerobert qui n'arrive pas à nous dire
 combien de tour de roue fait son hamster la nuit (oui, ça fait du bruit un hamster
-qui court dans sa roue… Surtout la nuit !). Bref, pour répondre à cette question que
+qui court dans sa roue... Surtout la nuit !). Bref, pour répondre à cette question que
 tout le monde se pose (me dite pas que vous ne vous l'êtes jamais posée, je ne vous
 croirais pas !) : Nous avons décidé de construire un hamster's roll !
 
@@ -96,7 +96,7 @@ chimiques... :grin:
 Ça y est, les plaques sont gravées ! Plusieurs nouveautés par rapport à ce mes
 habitudes :
 
-Plusieurs pistes de 0.8 mm espacées de 0.5 mm existent… Je suis d'habitude au dessus
+Plusieurs pistes de 0.8 mm espacées de 0.5 mm existent... Je suis d'habitude au dessus
 du millimètre...
 Je test une nouvelle marque de plaques pré-sensibilisés (donc les temps
 d'insolations / gravure sont forcément différent).
