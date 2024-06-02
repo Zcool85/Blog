@@ -95,7 +95,7 @@ Cheminement pour fabriquer sa propre batterie :
 
 ## BMS
 
-Un BMS est à cabler sur chaque cellules en série.
+Un BMS est à cabler sur chaque cellules en série (Pas besoin de BMS si les cellules sont montées en parallèle).
 
 ![BMS 4S](/assets/posts/learning-batt-lithium/bms-4s.jpg){: width="400" }
 _Exemple de branchement d'un BMS 4s_
@@ -120,6 +120,17 @@ Et c'est là où c'est la merde avec les BMS tout préparé du commerce... Deux 
 
 ## Chargeur de batterie
 
+Il faut un chargeur correspondant à la tension de charge de la batterie (multiplier la tension de charge d'une cellule par le nombre d'élément en série).
+
+Exemple : Si la tension de charge d'une cellule est de $3.7V$ et que la batterie est une 3s4p, alors la tension de charge de la batterie est de $3.7 \times 3 = 11.1V$.
+
+Il faut un chargeur débitant le courant de charge de la batterie (multiplier courant de charge d'une cellule par le nombre d'élément en parallèle).
+
+Exemple : Si le courant de charge d'une cellule est de $1.25A$ et que la batterie est une 3s4p, alors le courant de charge de la batterie est de $1.25 \times 4 = 5A$.
+
+> Il est possible d'utiliser un chargeur li-ion dont le courant est inférieur au courant de charge de la batterie. Dans ce cas, la charge sera juste plus longue.
+{: .prompt-info }
+
 TODO
 
 
@@ -131,10 +142,14 @@ Quelques pistes à creuser :
 - BMS 1 cell : TC4056 / AP9101C / LTC4056
 - Equivalent : MCP73833 https://www.farnell.com/datasheets/1669398.pdf
 
+Viédos d'inspiration :
+- https://www.youtube.com/watch?v=GRd9uTwg7r4 (attention, mettre la schotky n'est pas forcéement idéal car le port USB ne peut débiter que 500mA... Si la batterie à besoin de 400mA en charge, alors le circuit ne devra pas dépasser 100mA de consommation au risque de flinguer le port USB. Sans la schotky, le circuit est stoppé tant que la battery est en charge)
+- https://www.youtube.com/watch?v=vBIE0agqBW0
+
 
 ## Montage d'une batterie
 
-Avant de monter la batterie, il faut charger chaque cellule pour qu'elles atteignent toutes la même tension.
+Avant de monter la batterie, il faut charger chaque cellule pour qu'elles atteignent toutes la même tension. Il est possible de charger une cellule unique via les petits modules à pas cher sur [AliExpress](https://fr.aliexpress.com/item/32797834680.html?spm=a2g0w.search0104.3.10.7eb55900yd8lks&ws_ab_test=searchweb0_0%2Csearchweb201602_8_10065_10068_319_10892_317_10696_10084_453_454_10083_10618_10304_10307_10820_10821_537_10302_536_10902_10843_10059_10884_10887_321_322_10103%2Csearchweb201603_51%2CppcSwitch_0&algo_expid=3f36384f-7f03-433e-a4f0-3623beb15829-1&algo_pvid=3f36384f-7f03-433e-a4f0-3623beb15829&transAbTest=ae803_3).
 
 Il existe des spacers de batterie (support d'entretoise de batterie). Exemple : [nkon.nl](https://www.nkon.nl/fr/accessories/packaccessoires/spacer.html)
 
