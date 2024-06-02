@@ -3,9 +3,9 @@
 Site de réflexion sur mes projets
 
 TODO :
-
-- Ajouter un cours sur les batteries lithium
+- Finaliser les TODO dans le cours sur les batteries lithium
 - Ajouter le projet de tapis DDR
+
 
 ## Install
 
